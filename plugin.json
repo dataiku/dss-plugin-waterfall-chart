@@ -1,0 +1,14 @@
+{
+    "id": "waterfall-chart",
+    "version": "1.0.0",
+    "meta": {
+        "label": "Waterfall chart",
+        "description": "Use waterfall charts to visualize the evolution of a value.",
+        "author": "Dataiku (Du Phan)",
+        "icon": "icon-bar-chart",
+        "licenseInfo": "Apache Software License",
+        "url": "https://www.dataiku.com/dss/plugins/info/google-charts.html",
+        "tags": ["Visualization"],
+        "supportLevel": "NOT_SUPPORTED"
+    }
+}
