@@ -11,7 +11,7 @@ function draw() {
 
     for (var i = 1; i < allRows.length; i++) {
         arr = allRows[i];
-        data.addRow([arr[0], parseInt(arr[1]), parseInt(arr[2]), parseInt(arr[3]), parseInt(arr[4])]);
+        data.addRow([arr[0], Number(arr[1]), Number(arr[2]), Number(arr[3]), Number(arr[4])]);
     }
 
     let options = {
