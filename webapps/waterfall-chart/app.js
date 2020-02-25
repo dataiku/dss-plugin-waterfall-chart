@@ -9,7 +9,7 @@ function draw() {
     data.addColumn('number', 'max_value');
     data.addColumn('number', 'max_threshold');
 
-    for (var i = 0; i < allRows.length; i++) {
+    for (var i = 1; i < allRows.length; i++) {
         arr = allRows[i];
         data.addRow([arr[0], parseInt(arr[1]), parseInt(arr[2]), parseInt(arr[3]), parseInt(arr[4])]);
     }

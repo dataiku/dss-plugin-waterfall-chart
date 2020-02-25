@@ -19,24 +19,25 @@ function initWaterfall(cfg, onReady) {
     let allRows;
     let old_record = null;
     
+    
     function transform_record(record){
         var row = [];
-        row.push(record[unit]);
+
         if (old_record == null){
-            row.push("0");
-            row.push("0");
-        }
-        else {
+            old_record = record;
+            return row;
+        }else{
+            row.push(record[unit]);
             row.push(old_record[value]);
             row.push(old_record[value]);
+            row.push(record[value]);
+            row.push(record[value]);
+
+            old_record = record;
+            return row;
         }
-
-        row.push(record[value]);
-        row.push(record[value]);
-
-        old_record = record;
-        return row;
     }
+
 
     function drawAppIfEverythingReady() {
         if (!chartReady || !dataReady) {
@@ -55,9 +56,9 @@ function initWaterfall(cfg, onReady) {
         });
         dataiku.fetch(dataset, sampling, function(dataFrame) {
             allRows = dataFrame.mapRecords(transform_record);
-            var last_index = allRows.length - 1;
-            var final_row = ["final", "0", "0", allRows[last_index][4], allRows[last_index][4]];
-            allRows.push(final_row);
+            // var last_index = allRows.length - 1;
+            // var final_row = ["final", "0", "0", allRows[last_index][4], allRows[last_index][4]];
+            // allRows.push(final_row);
             dataReady = true;
             drawAppIfEverythingReady();
         });
