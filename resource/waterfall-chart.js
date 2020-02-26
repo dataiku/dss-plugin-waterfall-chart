@@ -22,20 +22,19 @@ function initWaterfall(cfg, onReady) {
     
     function transform_record(record){
         var row = [];
+        row.push(record[unit]);
 
         if (old_record == null){
-            old_record = record;
-            return row;
+            row.push(record[value]);
+            row.push(record[value]);
         }else{
-            row.push(record[unit]);
             row.push(old_record[value]);
             row.push(old_record[value]);
-            row.push(record[value]);
-            row.push(record[value]);
-
-            old_record = record;
-            return row;
         }
+        row.push(record[value]);
+        row.push(record[value]);     
+        old_record = record;
+        return row;
     }
 
 
