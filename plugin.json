@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "meta": {
         "label": "Waterfall chart",
-        "description": "Use waterfall charts to visualize the evolution of a value.",
+        "description": "Use waterfall charts to visualize the cumulative effect of positive or negative values of different categories.",
         "author": "Dataiku (Du Phan)",
         "icon": "icon-bar-chart",
         "licenseInfo": "Apache Software License",
