@@ -2,28 +2,33 @@
 Helper function to query webapp backend with a default implementation for error handling
 v 1.0.1
 */
+
+function checkMandatoryParameters(param, webAppConfig) {
+    if (param.mandatory) {
+        var val = webAppConfig[param.name];
+        if (val == undefined || val == "") {
+            throw new Error("Mandatory column '" + param.name + "' not specified.");
+        }
+    }
+}
+
 function checkWebAppParameters(webAppConfig, webAppDesc) {
     if (webAppDesc.topBarParams) {
-        webAppDesc.topBarParams.forEach(p => {
-            if (p.mandatory) {
-                var val = webAppConfig[p.name];
-                if (val == undefined || val == "") {
-                    throw new Error("Mandatory column '" + p.name + "' not specified.");
-                }
-            }
-        });
+        webAppDesc.topBarParams.forEach(p => {checkMandatoryParameters(p, webAppConfig)});
     }
     if (webAppDesc.leftBarParams) {
-        webAppDesc.leftBarParams.forEach(p => {
-            if (p.mandatory) {
-                var val = webAppConfig[p.name];
-                if (val == undefined || val == "") {
-                    throw new Error("Mandatory column '" + p.name + "' not specified.");
-                }
-            }
-        });
+        webAppDesc.leftBarParams.forEach(p => {checkMandatoryParameters(p, webAppConfig)});
     }
 };
+
+function checkWebAppConfig(webAppConfig) {
+    if (webAppConfig['categories'] == webAppConfig['values']) {
+        throw Error("Columns must be different")
+    }
+    if (webAppConfig['max_displayed_values'] > 100) {
+        throw Error("Max displayed values too high (maximum 100)")
+    }
+}
 
 
 dataiku.webappBackend = (function() {

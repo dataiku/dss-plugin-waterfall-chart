@@ -47,7 +47,7 @@
                 "mandatory": true
             }
         ],
-        "canFilter": false,
+        "canFilter": true,
         "canFacet": false
     }
 }
