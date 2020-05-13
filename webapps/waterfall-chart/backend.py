@@ -6,6 +6,7 @@ import json
 import traceback
 import logging
 logger = logging.getLogger(__name__)
+from functools import reduce
 
 
 def numerical_filter(df, filter):
