@@ -153,7 +153,7 @@ def reformat_data():
         category_column = config.get('category_column')
         value_column = config.get('value_column')
         max_displayed_values = int(config.get('max_displayed_values'))
-        group_others = True if config.get('group_others') == 'true' else False
+        group_others = config.get('group_others')
 
         df = dataiku.Dataset(dataset_name).get_dataframe()
         if df.empty:
