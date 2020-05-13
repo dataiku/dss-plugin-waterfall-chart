@@ -29,6 +29,8 @@ def alphanum_filter(df, filter):
             if v:
                 conditions += [~df[filter['column']].isnull()]
     if len(excluded_values) > 0:
+        if filter['columnType'] == 'NUMERICAL':
+            excluded_values = [float(x) for x in excluded_values]
         conditions += [~df[filter['column']].isin(excluded_values)]
     return conditions
 
@@ -161,16 +163,14 @@ def reformat_data():
         if df.empty:
             raise Exception("Dataframe is empty")
 
+        if df[value_column].dtype not in [np.dtype(int), np.dtype(float), np.dtype("float32")]:
+            raise TypeError("Values must be of numerical types")
+
         if len(filters) > 0:  # apply filters to dataframe
             df = filter_dataframe(df, filters)
 
         columns_list = [x for x in [category_column, value_column] if x is not None]
         df = df[columns_list]   # only keep the necessary columns
-
-        try:  # check that value_column is numerical and cast to numerical
-            df[value_column] = pd.to_numeric(df[value_column])
-        except:
-            raise TypeError("Values must be of numerical types")
 
         df = create_waterfall_df(df, category_column, value_column, max_displayed_values, group_others)
 
