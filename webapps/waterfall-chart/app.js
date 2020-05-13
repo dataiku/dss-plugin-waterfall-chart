@@ -21,8 +21,8 @@ function draw() {
 
     data.addRow(["Total", 0, 0, Number(arr[2]), Number(arr[2]), 'color: grey;']);
     
-    var chartHeight = chartElement.parentElement.parentElement.parentElement.getBoundingClientRect().height;
-    var chartWidth = chartElement.getBoundingClientRect().width;
+    var chartHeight = document.body.getBoundingClientRect().height;
+    var chartWidth = document.body.getBoundingClientRect().width;
 
     let options = {
       legend: 'none',

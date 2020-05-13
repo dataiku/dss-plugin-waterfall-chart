@@ -25,9 +25,6 @@ function checkWebAppConfig(webAppConfig) {
     if (webAppConfig['categories'] == webAppConfig['values']) {
         throw Error("Columns must be different")
     }
-    if (webAppConfig['max_displayed_values'] > 100) {
-        throw Error("Max displayed values too high (maximum 100)")
-    }
 }
 
 

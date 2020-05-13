@@ -18,6 +18,8 @@
                 "label": "Max displayed categories",
                 "description": "",
                 "mandatory": true,
+                "minI":1,
+                "maxI":100,
                 "defaultValue": 20
             },
             {
@@ -31,18 +33,18 @@
         "topBar": "STD_FORM",
         "topBarParams": [
             {
-                "name": "categories",
+                "name": "values",
                 "type": "DATASET_COLUMN",
                 "datasetParamName": "dataset",
-                "label": "Categories (X)",
+                "label": "Show values (Y)",
                 "description": "Sum all values within same category",
                 "mandatory": true
             },
             {
-                "name": "values",
+                "name": "categories",
                 "type": "DATASET_COLUMN",
                 "datasetParamName": "dataset",
-                "label": "Values (Y)",
+                "label": "By categories (X)",
                 "description": "",
                 "mandatory": true
             }

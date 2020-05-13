@@ -24,8 +24,9 @@ def alphanum_filter(df, filter):
         if k != '___dku_no_value___':
             if v:
                 excluded_values += [k]
-        elif k == '___dku_no_value___' and v:
-            conditions += [~df[filter['column']].isnull()]
+        else:
+            if v:
+                conditions += [~df[filter['column']].isnull()]
     if len(excluded_values) > 0:
         conditions += [~df[filter['column']].isin(excluded_values)]
     return conditions
@@ -115,7 +116,7 @@ def create_waterfall_df(df, category_column, value_column, max_displayed_values,
         df = df.groupby([category_column], as_index=False).agg({value_column:['sum','count']})
         df.columns = [category_column, value_column+'_sum', value_column+'_count']
     except:
-        raise TypeError("Cannot perform Groupby for column {}".format(category_column,))
+        raise TypeError("Cannot perform Groupby for column {}".format(category_column))
 
     n = df.shape[0]
     if n > max_displayed_values:  # aggregate small categories into one (keep only the n biggest categories in term of count)
