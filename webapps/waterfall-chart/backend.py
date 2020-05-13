@@ -61,13 +61,13 @@ def special_date_filter(df, filter):
         if filter["dateFilterType"] == "YEAR":
             conditions += [~df[filter['column']].dt.year.isin(excluded_values)]
         elif filter["dateFilterType"] == "QUARTER_OF_YEAR":
-            conditions += [~df[filter['column']].dt.quarter.isin([k+1 for k in excluded_values])]
+            conditions += [~df[filter['column']].dt.quarter.isin([int(k)+1 for k in excluded_values])]
         elif filter["dateFilterType"] == "MONTH_OF_YEAR":
-            conditions += [~df[filter['column']].dt.month.isin([k+1 for k in excluded_values])]
+            conditions += [~df[filter['column']].dt.month.isin([int(k)+1 for k in excluded_values])]
         elif filter["dateFilterType"] == "WEEK_OF_YEAR":
-            conditions += [~df[filter['column']].dt.week.isin([k+1 for k in excluded_values])]
-        elif filter["dateFilterType"] == "DAY_OF_YEAR":
-            conditions += [~df[filter['column']].dt.day.isin([k+1 for k in excluded_values])]
+            conditions += [~df[filter['column']].dt.week.isin([int(k)+1 for k in excluded_values])]
+        elif filter["dateFilterType"] == "DAY_OF_MONTH":
+            conditions += [~df[filter['column']].dt.day.isin([int(k)+1 for k in excluded_values])]
         elif filter["dateFilterType"] == "DAY_OF_WEEK":
             conditions += [~df[filter['column']].dt.dayofweek.isin(excluded_values)]
         elif filter["dateFilterType"] == "HOUR_OF_DAY":
