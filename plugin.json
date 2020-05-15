@@ -4,10 +4,10 @@
     "meta": {
         "label": "Waterfall chart",
         "description": "Use waterfall charts to visualize the cumulative effect of positive or negative values of different categories.",
-        "author": "Dataiku",
+        "author": "Dataiku (Stanislas Guinel)",
         "icon": "icon-bar-chart",
         "licenseInfo": "Apache Software License",
-        "url": "https://www.dataiku.com/dss/plugins/info/google-charts.html",
+        "url": "https://www.dataiku.com/product/plugins/waterfall-charts/",
         "tags": ["Visualization"],
         "supportLevel": "NOT_SUPPORTED"
     }
