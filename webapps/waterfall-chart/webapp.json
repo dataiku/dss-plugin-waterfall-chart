@@ -6,32 +6,50 @@
     },
 
     "baseType": "STANDARD",
-    "hasBackend": "false",
+    "hasBackend": "true",
 
     "chart" : {
         "datasetParamName": "dataset",
         "leftBarLabel": "Chart parameters",
-        "leftBarParams": [],
+        "leftBarParams": [
+            {
+                "name": "max_displayed_values",
+                "type": "INT",
+                "label": "Max displayed categories",
+                "description": "",
+                "mandatory": true,
+                "minI":1,
+                "maxI":100,
+                "defaultValue": 20
+            },
+            {
+                "name": "group_others",
+                "type": "BOOLEAN",
+                "label": "'Others'",
+                "description": "Group extra values in a 'Others' category",
+                "defaultValue":true
+            }
+        ],
         "topBar": "STD_FORM",
         "topBarParams": [
             {
-                "name": "unit",
+                "name": "values",
                 "type": "DATASET_COLUMN",
                 "datasetParamName": "dataset",
-                "label": "Unit column",
-                "description": "",
+                "label": "Show values (Y)",
+                "description": "Sum all values within same category",
                 "mandatory": true
             },
             {
-                "name": "value",
+                "name": "categories",
                 "type": "DATASET_COLUMN",
                 "datasetParamName": "dataset",
-                "label": "Value column",
+                "label": "By categories (X)",
                 "description": "",
                 "mandatory": true
             }
         ],
-        "canFilter": false,
+        "canFilter": true,
         "canFacet": false
     }
 }
