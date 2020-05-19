@@ -26,6 +26,9 @@ For each type of transactions, the total sum of its values is computed and then 
 
 The **Total** column corresponds to the total cumulative values of all categories.
 
+## Requirements
+
+DSS 7.0.1 or newer is required.
 
 ## License
 This project is licensed under the Apache Software License.
