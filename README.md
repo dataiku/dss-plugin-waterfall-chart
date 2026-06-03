@@ -1,6 +1,6 @@
 # Waterfall chart
 
-⚠️ Recent DSS versions provide a native Waterfall chart. This plugin should only be used for historical or compatibility purposes when the native chart is not an option.
+⚠️ Starting with version 14.3.0, DSS provide a native Waterfall chart. This plugin should only be used for historical or compatibility purposes when the native chart is not an option.
 
 This Dataiku DSS plugin adds a custom chart: the waterfall chart.
 
